@@ -1,0 +1,36 @@
+{
+    "ResponseStatus": "OK",
+    "OKContent": {
+        "items": [
+            {
+                "imageUrl": "assets/images/image_competition1.png",
+                "title": "Indonesia Art Project by Solana",
+                "dayTime": "4 hari lagi",
+                "nation": "Nasional",
+                "status": "Gratis"
+            },
+            {
+                "imageUrl": "assets/images/image_competition2.png",
+                "title": "Astra Startup Challenge",
+                "dayTime": "4 hari lagi",
+                "nation": "Nasional",
+                "status": "Gratis"
+            },
+            {
+                "imageUrl": "assets/images/image_competition3.png",
+                "title": "Business Plan Competition",
+                "dayTime": "4 hari lagi",
+                "nation": "Nasional",
+                "status": "Gratis"
+            },
+            {
+                "imageUrl": "assets/images/image_competition2.png",
+                "title": "Business Plan Competition",
+                "dayTime": "4 hari lagi",
+                "nation": "Nasional",
+                "status": "Gratis"
+            }
+        ]
+    },
+    "failContent": ""
+}

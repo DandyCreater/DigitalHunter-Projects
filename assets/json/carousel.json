@@ -1,0 +1,20 @@
+{
+    "ResponseStatus": "OK",
+    "OKContent": {
+        "items": [
+            {
+                "title": "first Carousel",
+                "imageUrl": "assets/images/carousel_1.png"
+            },
+            {
+                "title": "first Carousel",
+                "imageUrl": "assets/images/carousel_2.png"
+            },
+            {
+                "title": "first Carousel",
+                "imageUrl": "assets/images/carousel_3.png"
+            }
+        ]
+    },
+    "failContent": ""
+}

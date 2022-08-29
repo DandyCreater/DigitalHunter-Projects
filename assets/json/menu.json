@@ -1,0 +1,32 @@
+{
+    "ResponseStatus": "OK",
+    "OKContent": {
+        "items": [
+            {
+                "imageUrl": "assets/images/image_course.png",
+                "title": "Course"
+            },
+            {
+                "imageUrl": "assets/images/image_museum.png",
+                "title": "Museum"
+            },
+            {
+                "imageUrl": "assets/images/image_project.png",
+                "title": "Project"
+            },
+            {
+                "imageUrl": "assets/images/image_competition.png",
+                "title": "Competition"
+            },
+            {
+                "imageUrl": "assets/images/image_toprank.png",
+                "title": "Top Rank"
+            },
+            {
+                "imageUrl": "assets/images/image_duel.png",
+                "title": "Duel Quiz"
+            }
+        ]
+    },
+    "failContent": ""
+}

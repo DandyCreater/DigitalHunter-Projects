@@ -1,0 +1,41 @@
+{
+    "ResponseStatus": "OK",
+    "OKContent": {
+        "items": [
+            {
+                "imageUrl": "assets/images/image_kelas1.png",
+                "title": "UX Design: User Persona",
+                "lessons": "28 Lessons",
+                "classStatus": "Online Class",
+                "subTitle": "Intro to UX Design Research",
+                "status": "GRATIS",
+                "price": "Rp. 499.000",
+                "poins": "+10 poins",
+                "student": "20,000"
+            },
+            {
+                "imageUrl": "assets/images/image_kelas2.png",
+                "title": "Intro to UX Design Research",
+                "lessons": "28 Lessons",
+                "classStatus": "Online Class",
+                "subTitle": "UX Design: User Persona",
+                "status": "GRATIS",
+                "price": "Rp. 499.000",
+                "poins": "+10 poins",
+                "student": "20,000"
+            },
+            {
+                "imageUrl": "assets/images/image_kelas3.png",
+                "title": "UX Design: User Flow",
+                "lessons": "28 Lessons",
+                "classStatus": "Online Class",
+                "subTitle": "UX Design: User Flow",
+                "status": "GRATIS",
+                "price": "Rp. 499.000",
+                "poins": "+10 poins",
+                "student": "20,000"
+            }
+        ]
+    },
+    "failContent": ""
+}
