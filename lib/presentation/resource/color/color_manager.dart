@@ -23,4 +23,6 @@ class ColorManager {
   static Color courseSubButton = const Color(0xffEFEFEF);
   static Color courseCompleteButton = const Color(0xff63DD50);
   static Color courseIncompleteButton = const Color(0xff1583E5);
+
+  static Color inActiveTimeLine = const Color(0xffF0F0F0);
 }

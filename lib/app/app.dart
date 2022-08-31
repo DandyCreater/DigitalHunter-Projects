@@ -5,6 +5,7 @@ import 'package:digital_hunter/presentation/bloc/menu-bloc/menu_bloc.dart';
 import 'package:digital_hunter/presentation/bloc/mission-bloc/mission_bloc.dart';
 import 'package:digital_hunter/presentation/resource/routes/route_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyApp extends StatefulWidget {
@@ -26,10 +27,17 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (_) => CompetitionBloc()..add(FetchCompetition())),
         BlocProvider(create: (_) => MissionBloc()..add(FetchMission())),
       ],
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.mainPageRoute,
+      child: const AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          statusBarBrightness: Brightness.dark,
+          statusBarIconBrightness: Brightness.dark,
+        ),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: RouteGenerator.getRoute,
+          initialRoute: Routes.mainPageRoute,
+        ),
       ),
     );
   }

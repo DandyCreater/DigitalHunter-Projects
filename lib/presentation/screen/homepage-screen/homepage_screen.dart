@@ -69,8 +69,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               itemBuilder: (BuildContext context, int itemIndex,
                                       pageViewIndex) =>
                                   Container(
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 6.w),
+                                    margin: EdgeInsets.only(right: 6.w),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       image: DecorationImage(
@@ -84,10 +83,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                   ),
                               options: CarouselOptions(
                                   aspectRatio: 2.0,
-                                  viewportFraction: 1,
-                                  enlargeStrategy:
-                                      CenterPageEnlargeStrategy.height,
-                                  enlargeCenterPage: true,
+                                  viewportFraction: 0.92,
+                                  enlargeCenterPage: false,
                                   pauseAutoPlayOnManualNavigate: true,
                                   autoPlay: true,
                                   scrollDirection: Axis.horizontal,
@@ -139,7 +136,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                            color: ColorManager.shadowColor,
+                            color: ColorManager.shadowColor.withOpacity(0.2),
                             blurRadius: 10,
                             offset: const Offset(0, 0))
                       ]),
@@ -184,7 +181,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           ),
                         ),
                         Container(
-                          height: 45,
+                          height: 35,
                           width: 90,
                           decoration: BoxDecoration(
                             color: ColorManager.primaryColor,
@@ -239,7 +236,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                     title: menu[index].title.toString(),
                                     press: () {}),
                                 const SizedBox(
-                                  width: 10,
+                                  width: 20,
                                 )
                               ],
                             );
@@ -345,7 +342,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     if (state is CompetitionSuccess) {
                       var items = state.okContentCompetition!.items;
                       return ListView.builder(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.only(left: 20),
                           scrollDirection: Axis.horizontal,
                           physics: const BouncingScrollPhysics(),
                           itemCount: items!.length,

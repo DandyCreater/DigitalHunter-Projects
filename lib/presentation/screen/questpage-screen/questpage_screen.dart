@@ -29,12 +29,12 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
           indicator: MD2Indicator(
               indicatorHeight: 4,
               indicatorColor: ColorManager.primaryColor,
-              indicatorSize: MD2IndicatorSize.normal),
+              indicatorSize: MD2IndicatorSize.full),
           // ignore: prefer_const_literals_to_create_immutables
           tabs: [
             Tab(
               child: Text(
-                "Aktifitas",
+                "Quest",
                 style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeightManager.medium,
@@ -43,7 +43,7 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
             ),
             Tab(
               child: Text(
-                "Berita",
+                "Specialize",
                 style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeightManager.medium,
@@ -59,7 +59,6 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("TimeLine Area"),
             RichText(
               text: TextSpan(
                 text: "Progress ",
@@ -72,7 +71,194 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
                 ],
               ),
             ),
-            Center(child: Text("TimeLine Area")),
+            SizedBox(
+              height: 1.h,
+            ),
+            SizedBox(
+              height: 60,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TimelineTile(
+                    axis: TimelineAxis.horizontal,
+                    alignment: TimelineAlign.start,
+                    lineXY: 0.2,
+                    isFirst: true,
+                    beforeLineStyle: LineStyle(color: ColorManager.activeColor),
+                    indicatorStyle: IndicatorStyle(
+                      indicatorXY: 0,
+                      indicator: Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: ColorManager.whiteColor,
+                            border: Border.all(
+                                color: ColorManager.activeColor, width: 5)),
+                      ),
+                    ),
+                    endChild: Container(
+                      // width: 75,
+                      padding: EdgeInsets.only(
+                        top: 10,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "C-CLass",
+                              style: RobotoSemiBoldThemeText(
+                                  12, ColorManager.blackColor),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "50 Stars",
+                              style: RobotoRegularThemeText(
+                                  12, ColorManager.greyColor),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  TimelineTile(
+                    axis: TimelineAxis.horizontal,
+                    alignment: TimelineAlign.start,
+                    lineXY: 0.2,
+                    afterLineStyle: LineStyle(
+                      color: ColorManager.inActiveTimeLine,
+                    ),
+                    beforeLineStyle: LineStyle(
+                      color: ColorManager.inActiveTimeLine,
+                    ),
+                    indicatorStyle: IndicatorStyle(
+                      indicatorXY: 0,
+                      indicator: Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: ColorManager.whiteColor,
+                            border: Border.all(
+                                color: ColorManager.inActiveTimeLine,
+                                width: 5)),
+                      ),
+                    ),
+                    endChild: Container(
+                      color: Colors.amber,
+                      // width: 75,
+                      padding: EdgeInsets.only(top: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "B-CLass",
+                              style: RobotoSemiBoldThemeText(
+                                  12, ColorManager.blackColor),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "100 Stars",
+                              style: RobotoRegularThemeText(
+                                  12, ColorManager.greyColor),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  TimelineTile(
+                    axis: TimelineAxis.horizontal,
+                    alignment: TimelineAlign.start,
+                    lineXY: 0.2,
+                    afterLineStyle: LineStyle(
+                      color: ColorManager.inActiveTimeLine,
+                    ),
+                    beforeLineStyle: LineStyle(
+                      color: ColorManager.inActiveTimeLine,
+                    ),
+                    indicatorStyle: IndicatorStyle(
+                      indicatorXY: 0,
+                      indicator: Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: ColorManager.whiteColor,
+                            border: Border.all(
+                                color: ColorManager.inActiveTimeLine,
+                                width: 5)),
+                      ),
+                    ),
+                    endChild: Container(
+                      // width: 75,
+                      padding: EdgeInsets.only(top: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "A-CLass",
+                            style: RobotoSemiBoldThemeText(
+                                12, ColorManager.blackColor),
+                          ),
+                          Text(
+                            "150 Stars",
+                            style: RobotoRegularThemeText(
+                                12, ColorManager.greyColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  TimelineTile(
+                    axis: TimelineAxis.horizontal,
+                    alignment: TimelineAlign.start,
+                    lineXY: 0.2,
+                    isLast: true,
+                    indicatorStyle: IndicatorStyle(
+                      indicatorXY: 0,
+                      indicator: Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: ColorManager.whiteColor,
+                            border: Border.all(
+                                color: ColorManager.inActiveTimeLine,
+                                width: 5)),
+                      ),
+                    ),
+                    endChild: Container(
+                      // width: 75,
+                      padding: EdgeInsets.only(top: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "S-CLass",
+                            style: RobotoSemiBoldThemeText(
+                                12, ColorManager.blackColor),
+                          ),
+                          Text(
+                            "200 Stars",
+                            style: RobotoRegularThemeText(
+                                12, ColorManager.greyColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             SizedBox(
               height: 2.h,
             ),

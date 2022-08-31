@@ -47,8 +47,8 @@ class _MainPageState extends State<MainPage> {
             elevation: 0,
             color: ColorManager.backgroundColor,
             child: Container(
-              margin: EdgeInsets.only(bottom: 1.h),
-              height: 11.h,
+              margin: EdgeInsets.only(bottom: 0.5.h),
+              height: 9.h,
               width: double.infinity,
               decoration:
                   BoxDecoration(color: ColorManager.whiteColor, boxShadow: [
@@ -59,7 +59,7 @@ class _MainPageState extends State<MainPage> {
                 )
               ]),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
+                padding: EdgeInsets.only(left: 6.w, right: 6.w, top: 2.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -146,7 +146,7 @@ class _MainPageState extends State<MainPage> {
                             height: 1.h,
                           ),
                           Text(
-                            "Project",
+                            "Rank",
                             style: RobotoRegularThemeText(
                                 14,
                                 _currentpage == 3
