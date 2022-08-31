@@ -22,9 +22,7 @@ class MenuDashboard extends StatelessWidget {
       child: SizedBox(
         child: Column(
           children: [
-            ClipOval(
-              child: Image.asset(imageUrl!),
-            ),
+            Image.asset(imageUrl!),
             const SizedBox(
               height: 5,
             ),

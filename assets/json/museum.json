@@ -1,0 +1,22 @@
+{
+    "ResponseStatus": "OK",
+    "OKContent": {
+        "items": [
+            {
+                "imageUrl": "",
+                "title" : "1st Winner Indonesia Art Project by Solana Labs",
+                "year": "2022",
+                "status" : "Nasional",
+                "name" : "Talent Name"
+            },
+            {
+                "imageUrl": "",
+                "title" : "1st Winner Indonesia Art Project by Solana Labs",
+                "year": "2022",
+                "status" : "Nasional",
+                "name" : "Talent Name"
+            }
+        ]
+    },
+    "failContent" : ""
+}

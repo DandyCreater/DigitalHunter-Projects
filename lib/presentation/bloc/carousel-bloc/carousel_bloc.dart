@@ -16,7 +16,7 @@ class CarouselBloc extends Bloc<CarouselEvent, CarouselState> {
       final jsonData = await rootBundle.loadString("assets/json/carousel.json");
       final dataDecode = jsonDecode(jsonData);
 
-      final abc = await rootBundle.loadString("assets/json/mission.json");
+      final abc = await rootBundle.loadString("assets/json/museum.json");
       print(jsonEncode(jsonDecode(abc)));
 
       var data = OKContentCarousel.fromJson(dataDecode["OKContent"]);

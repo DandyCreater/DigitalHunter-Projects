@@ -21,6 +21,9 @@ class QuestPageScreen extends StatefulWidget {
 }
 
 class _QuestPageScreenState extends State<QuestPageScreen> {
+  var index = 0;
+  var countdata = 80;
+
   TabBar get _tabBar => TabBar(
           indicatorColor: ColorManager.primaryColor,
           labelColor: ColorManager.primaryColor,
@@ -52,6 +55,156 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
             )
           ]);
 
+  Widget manualTimeline() => Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Column(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 10,
+                  decoration:  BoxDecoration(color: ColorManager.inActiveColor),
+                ),
+                const SizedBox(
+                  height: 10,
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 10,
+            ),
+            child: AnimatedContainer(
+                duration: const Duration(seconds: 1),
+                width: countdata.toDouble(),
+                height: 10,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.blue)),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.blue, width: 6)),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "C-CLass",
+                    style: RobotoSemiBoldThemeText(12, ColorManager.blackColor),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "50 Stars",
+                    style: RobotoSemiBoldThemeText(12, ColorManager.greyColor),
+                  )
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                            color: (index > 0) ? Colors.blue : ColorManager.inActiveColor,
+                            width: 6)),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "B-CLass",
+                    style: RobotoSemiBoldThemeText(12, ColorManager.blackColor),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "100 Stars",
+                    style: RobotoSemiBoldThemeText(12, ColorManager.greyColor),
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                            color: (index > 1) ? Colors.blue : Colors.grey,
+                            width: 6)),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "A-CLass",
+                    style: RobotoSemiBoldThemeText(12, ColorManager.blackColor),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "150 Stars",
+                    style: RobotoSemiBoldThemeText(12, ColorManager.greyColor),
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                            color: (index > 2) ? Colors.blue : Colors.grey,
+                            width: 6)),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "S-CLass",
+                    style: RobotoSemiBoldThemeText(12, ColorManager.blackColor),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "200 Stars",
+                    style: RobotoSemiBoldThemeText(12, ColorManager.greyColor),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      );
   Widget quest() => SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Padding(
@@ -74,191 +227,7 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
             SizedBox(
               height: 1.h,
             ),
-            SizedBox(
-              height: 60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TimelineTile(
-                    axis: TimelineAxis.horizontal,
-                    alignment: TimelineAlign.start,
-                    lineXY: 0.2,
-                    isFirst: true,
-                    beforeLineStyle: LineStyle(color: ColorManager.activeColor),
-                    indicatorStyle: IndicatorStyle(
-                      indicatorXY: 0,
-                      indicator: Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ColorManager.whiteColor,
-                            border: Border.all(
-                                color: ColorManager.activeColor, width: 5)),
-                      ),
-                    ),
-                    endChild: Container(
-                      // width: 75,
-                      padding: EdgeInsets.only(
-                        top: 10,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "C-CLass",
-                              style: RobotoSemiBoldThemeText(
-                                  12, ColorManager.blackColor),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "50 Stars",
-                              style: RobotoRegularThemeText(
-                                  12, ColorManager.greyColor),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  TimelineTile(
-                    axis: TimelineAxis.horizontal,
-                    alignment: TimelineAlign.start,
-                    lineXY: 0.2,
-                    afterLineStyle: LineStyle(
-                      color: ColorManager.inActiveTimeLine,
-                    ),
-                    beforeLineStyle: LineStyle(
-                      color: ColorManager.inActiveTimeLine,
-                    ),
-                    indicatorStyle: IndicatorStyle(
-                      indicatorXY: 0,
-                      indicator: Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ColorManager.whiteColor,
-                            border: Border.all(
-                                color: ColorManager.inActiveTimeLine,
-                                width: 5)),
-                      ),
-                    ),
-                    endChild: Container(
-                      color: Colors.amber,
-                      // width: 75,
-                      padding: EdgeInsets.only(top: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "B-CLass",
-                              style: RobotoSemiBoldThemeText(
-                                  12, ColorManager.blackColor),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "100 Stars",
-                              style: RobotoRegularThemeText(
-                                  12, ColorManager.greyColor),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  TimelineTile(
-                    axis: TimelineAxis.horizontal,
-                    alignment: TimelineAlign.start,
-                    lineXY: 0.2,
-                    afterLineStyle: LineStyle(
-                      color: ColorManager.inActiveTimeLine,
-                    ),
-                    beforeLineStyle: LineStyle(
-                      color: ColorManager.inActiveTimeLine,
-                    ),
-                    indicatorStyle: IndicatorStyle(
-                      indicatorXY: 0,
-                      indicator: Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ColorManager.whiteColor,
-                            border: Border.all(
-                                color: ColorManager.inActiveTimeLine,
-                                width: 5)),
-                      ),
-                    ),
-                    endChild: Container(
-                      // width: 75,
-                      padding: EdgeInsets.only(top: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "A-CLass",
-                            style: RobotoSemiBoldThemeText(
-                                12, ColorManager.blackColor),
-                          ),
-                          Text(
-                            "150 Stars",
-                            style: RobotoRegularThemeText(
-                                12, ColorManager.greyColor),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  TimelineTile(
-                    axis: TimelineAxis.horizontal,
-                    alignment: TimelineAlign.start,
-                    lineXY: 0.2,
-                    isLast: true,
-                    indicatorStyle: IndicatorStyle(
-                      indicatorXY: 0,
-                      indicator: Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ColorManager.whiteColor,
-                            border: Border.all(
-                                color: ColorManager.inActiveTimeLine,
-                                width: 5)),
-                      ),
-                    ),
-                    endChild: Container(
-                      // width: 75,
-                      padding: EdgeInsets.only(top: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "S-CLass",
-                            style: RobotoSemiBoldThemeText(
-                                12, ColorManager.blackColor),
-                          ),
-                          Text(
-                            "200 Stars",
-                            style: RobotoRegularThemeText(
-                                12, ColorManager.greyColor),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            manualTimeline(),
             SizedBox(
               height: 2.h,
             ),
@@ -355,3 +324,190 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
     }));
   }
 }
+
+
+// SizedBox(
+//               height: 60,
+//               child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   TimelineTile(
+//                     axis: TimelineAxis.horizontal,
+//                     alignment: TimelineAlign.start,
+//                     lineXY: 0.2,
+//                     isFirst: true,
+//                     beforeLineStyle: LineStyle(color: ColorManager.activeColor),
+//                     indicatorStyle: IndicatorStyle(
+//                       indicatorXY: 0,
+//                       indicator: Container(
+//                         height: 20,
+//                         width: 20,
+//                         decoration: BoxDecoration(
+//                             shape: BoxShape.circle,
+//                             color: ColorManager.whiteColor,
+//                             border: Border.all(
+//                                 color: ColorManager.activeColor, width: 5)),
+//                       ),
+//                     ),
+//                     endChild: Container(
+//                       // width: 75,
+//                       padding: EdgeInsets.only(
+//                         top: 10,
+//                       ),
+//                       child: Column(
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Align(
+//                             alignment: Alignment.centerLeft,
+//                             child: Text(
+//                               "C-CLass",
+//                               style: RobotoSemiBoldThemeText(
+//                                   12, ColorManager.blackColor),
+//                             ),
+//                           ),
+//                           Align(
+//                             alignment: Alignment.centerLeft,
+//                             child: Text(
+//                               "50 Stars",
+//                               style: RobotoRegularThemeText(
+//                                   12, ColorManager.greyColor),
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                   TimelineTile(
+//                     axis: TimelineAxis.horizontal,
+//                     alignment: TimelineAlign.start,
+//                     lineXY: 0.2,
+//                     afterLineStyle: LineStyle(
+//                       color: ColorManager.inActiveTimeLine,
+//                     ),
+//                     beforeLineStyle: LineStyle(
+//                       color: ColorManager.inActiveTimeLine,
+//                     ),
+//                     indicatorStyle: IndicatorStyle(
+//                       indicatorXY: 0,
+//                       indicator: Container(
+//                         height: 20,
+//                         width: 20,
+//                         decoration: BoxDecoration(
+//                             shape: BoxShape.circle,
+//                             color: ColorManager.whiteColor,
+//                             border: Border.all(
+//                                 color: ColorManager.inActiveTimeLine,
+//                                 width: 5)),
+//                       ),
+//                     ),
+//                     endChild: Container(
+//                       color: Colors.amber,
+//                       // width: 75,
+//                       padding: EdgeInsets.only(top: 10),
+//                       child: Column(
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Align(
+//                             alignment: Alignment.centerLeft,
+//                             child: Text(
+//                               "B-CLass",
+//                               style: RobotoSemiBoldThemeText(
+//                                   12, ColorManager.blackColor),
+//                             ),
+//                           ),
+//                           Align(
+//                             alignment: Alignment.centerLeft,
+//                             child: Text(
+//                               "100 Stars",
+//                               style: RobotoRegularThemeText(
+//                                   12, ColorManager.greyColor),
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                   TimelineTile(
+//                     axis: TimelineAxis.horizontal,
+//                     alignment: TimelineAlign.start,
+//                     lineXY: 0.2,
+//                     afterLineStyle: LineStyle(
+//                       color: ColorManager.inActiveTimeLine,
+//                     ),
+//                     beforeLineStyle: LineStyle(
+//                       color: ColorManager.inActiveTimeLine,
+//                     ),
+//                     indicatorStyle: IndicatorStyle(
+//                       indicatorXY: 0,
+//                       indicator: Container(
+//                         height: 20,
+//                         width: 20,
+//                         decoration: BoxDecoration(
+//                             shape: BoxShape.circle,
+//                             color: ColorManager.whiteColor,
+//                             border: Border.all(
+//                                 color: ColorManager.inActiveTimeLine,
+//                                 width: 5)),
+//                       ),
+//                     ),
+//                     endChild: Container(
+//                       // width: 75,
+//                       padding: EdgeInsets.only(top: 10),
+//                       child: Column(
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Text(
+//                             "A-CLass",
+//                             style: RobotoSemiBoldThemeText(
+//                                 12, ColorManager.blackColor),
+//                           ),
+//                           Text(
+//                             "150 Stars",
+//                             style: RobotoRegularThemeText(
+//                                 12, ColorManager.greyColor),
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                   TimelineTile(
+//                     axis: TimelineAxis.horizontal,
+//                     alignment: TimelineAlign.start,
+//                     lineXY: 0.2,
+//                     isLast: true,
+//                     indicatorStyle: IndicatorStyle(
+//                       indicatorXY: 0,
+//                       indicator: Container(
+//                         height: 20,
+//                         width: 20,
+//                         decoration: BoxDecoration(
+//                             shape: BoxShape.circle,
+//                             color: ColorManager.whiteColor,
+//                             border: Border.all(
+//                                 color: ColorManager.inActiveTimeLine,
+//                                 width: 5)),
+//                       ),
+//                     ),
+//                     endChild: Container(
+//                       // width: 75,
+//                       padding: EdgeInsets.only(top: 10),
+//                       child: Column(
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Text(
+//                             "S-CLass",
+//                             style: RobotoSemiBoldThemeText(
+//                                 12, ColorManager.blackColor),
+//                           ),
+//                           Text(
+//                             "200 Stars",
+//                             style: RobotoRegularThemeText(
+//                                 12, ColorManager.greyColor),
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
