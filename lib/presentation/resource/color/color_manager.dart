@@ -28,4 +28,8 @@ class ColorManager {
 
   static Color inActiveCustomChip = const Color(0xffF0F0F0);
   static Color activeCustomChip = const Color(0xff047DED);
+
+  static Color appbarTitleColor = const Color(0xff4D4D4D);
+
+  static Color colorChipKaryaColor = const Color(0xffE8F1FC);
 }

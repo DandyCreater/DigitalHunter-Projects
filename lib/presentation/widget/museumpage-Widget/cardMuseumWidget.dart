@@ -12,19 +12,20 @@ class CustomCardMuseumWidget extends StatelessWidget {
   final String? status;
   final String? name;
   final Function() press;
-  const CustomCardMuseumWidget({
-    Key? key,
-    required this.imageUrl,
-    required this.title,
-    required this.year, 
-    required this.status,
-     required this.name,
-     required this.press
-  }) : super(key: key);
+  const CustomCardMuseumWidget(
+      {Key? key,
+      required this.imageUrl,
+      required this.title,
+      required this.year,
+      required this.status,
+      required this.name,
+      required this.press})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: 6.w),
       width: double.infinity,
       height: 145,
       decoration: BoxDecoration(
@@ -52,9 +53,7 @@ class CustomCardMuseumWidget extends StatelessWidget {
                       width: 105,
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage(
-                                  imageUrl!),
-                              fit: BoxFit.cover)),
+                              image: AssetImage(imageUrl!), fit: BoxFit.cover)),
                     ),
                   ),
                   Align(

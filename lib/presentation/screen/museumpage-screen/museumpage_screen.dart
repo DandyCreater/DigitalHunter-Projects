@@ -1,6 +1,7 @@
 import 'package:digital_hunter/presentation/bloc/museum-bloc/museum_bloc.dart';
 import 'package:digital_hunter/presentation/resource/color/color_manager.dart';
 import 'package:digital_hunter/presentation/resource/font/font_manager.dart';
+import 'package:digital_hunter/presentation/screen/karyapage-screen/karyapage-screen.dart';
 import 'package:digital_hunter/presentation/widget/museumpage-Widget/cardMuseumWidget.dart';
 import 'package:digital_hunter/presentation/widget/museumpage-Widget/customchipWidget.dart';
 import 'package:flutter/material.dart';
@@ -25,41 +26,47 @@ class _MuseumPageScreenState extends State<MuseumPageScreen> {
           const SizedBox(
             height: 25,
           ),
-          Padding(
-              padding: EdgeInsets.symmetric(horizontal: 6.w),
-              child: SizedBox(
-                height: 80.h,
-                child: BlocBuilder<MuseumBloc, MuseumState>(
-                  builder: (context, state) {
-                    if (state is MuseumSuccess) {
-                      var items = state.okContentMuseum!.items;
-                      return ListView.builder(
-                          physics: const BouncingScrollPhysics(),
-                          scrollDirection: Axis.vertical,
-                          itemCount: items!.length,
-                          itemBuilder: ((context, index) {
-                            return Column(
-                              children: [
-                                CustomCardMuseumWidget(
-                                    imageUrl: items[index].imageUrl,
-                                    title: items[index].title,
-                                    year: items[index].year,
-                                    status: items[index].status,
-                                    name: items[index].name,
-                                    press: () {}),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                              ],
-                            );
-                          }));
-                    }
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  },
-                ),
-              ))
+          SizedBox(
+            height: 80.h,
+            child: BlocBuilder<MuseumBloc, MuseumState>(
+              builder: (context, state) {
+                if (state is MuseumSuccess) {
+                  var items = state.okContentMuseum!.items;
+                  return ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      scrollDirection: Axis.vertical,
+                      itemCount: items!.length,
+                      itemBuilder: ((context, index) {
+                        return Column(
+                          children: [
+                            CustomCardMuseumWidget(
+                                imageUrl: items[index].imageUrl,
+                                title: items[index].title,
+                                year: items[index].year,
+                                status: items[index].status,
+                                name: items[index].name,
+                                press: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => KaryaPageScreen(
+                                              title: items[index].title,
+                                              imageUrl:
+                                                  items[index].imageUrl)));
+                                }),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                          ],
+                        );
+                      }));
+                }
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ),
+          )
         ],
       );
 
