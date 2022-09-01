@@ -3,6 +3,7 @@ import 'package:digital_hunter/presentation/bloc/competition-bloc/competition_bl
 import 'package:digital_hunter/presentation/bloc/course-bloc/course_bloc.dart';
 import 'package:digital_hunter/presentation/bloc/menu-bloc/menu_bloc.dart';
 import 'package:digital_hunter/presentation/bloc/mission-bloc/mission_bloc.dart';
+import 'package:digital_hunter/presentation/bloc/museum-bloc/museum_bloc.dart';
 import 'package:digital_hunter/presentation/resource/routes/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -26,6 +27,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (_) => CourseBloc()..add(FetchCourse())),
         BlocProvider(create: (_) => CompetitionBloc()..add(FetchCompetition())),
         BlocProvider(create: (_) => MissionBloc()..add(FetchMission())),
+        BlocProvider(create: (_) => MuseumBloc()..add(FetchMuseum()))
       ],
       child: const AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(

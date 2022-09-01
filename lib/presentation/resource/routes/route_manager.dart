@@ -1,6 +1,7 @@
 import 'package:digital_hunter/presentation/mainpage.dart';
 import 'package:digital_hunter/presentation/screen/homepage-screen/homepage_screen.dart';
 import 'package:digital_hunter/presentation/screen/missionpage-screen/missionpage_screen.dart';
+import 'package:digital_hunter/presentation/screen/museumpage-screen/museumpage_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class Routes {
   static const String mainPageRoute = '/';
   static const String homePageRoute = '/homepage';
   static const String missionPageRoute = '/mission';
+  static const String museumPageRoute = '/museum';
 }
 
 class RouteGenerator {
@@ -21,6 +23,10 @@ class RouteGenerator {
       case Routes.missionPageRoute:
         return MaterialPageRoute(
             builder: ((context) => const MissionPageScreen()));
+      case Routes.museumPageRoute:
+        return MaterialPageRoute(
+            builder: ((context) => const MuseumPageScreen()));
+
       default:
         return noRouteFound();
     }

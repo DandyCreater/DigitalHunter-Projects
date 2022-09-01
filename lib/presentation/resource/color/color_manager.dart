@@ -25,4 +25,7 @@ class ColorManager {
   static Color courseIncompleteButton = const Color(0xff1583E5);
 
   static Color inActiveTimeLine = const Color(0xffF0F0F0);
+
+  static Color inActiveCustomChip = const Color(0xffF0F0F0);
+  static Color activeCustomChip = const Color(0xff047DED);
 }

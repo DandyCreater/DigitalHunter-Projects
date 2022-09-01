@@ -64,7 +64,7 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
                 Container(
                   width: double.infinity,
                   height: 10,
-                  decoration:  BoxDecoration(color: ColorManager.inActiveColor),
+                  decoration:  BoxDecoration(color: ColorManager.inActiveTimeLine),
                 ),
                 const SizedBox(
                   height: 10,
@@ -82,7 +82,7 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
                 height: 10,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue)),
+                    color: ColorManager.activeColor)),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,7 +96,7 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.blue, width: 6)),
+                        border: Border.all(color: ColorManager.activeColor, width: 6)),
                   ),
                   const SizedBox(
                     height: 20,
@@ -124,7 +124,7 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
                         color: Colors.white,
                         shape: BoxShape.circle,
                         border: Border.all(
-                            color: (index > 0) ? Colors.blue : ColorManager.inActiveColor,
+                            color: (index > 0) ? ColorManager.activeColor : ColorManager.inActiveTimeLine,
                             width: 6)),
                   ),
                   const SizedBox(
@@ -153,7 +153,7 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
                         color: Colors.white,
                         shape: BoxShape.circle,
                         border: Border.all(
-                            color: (index > 1) ? Colors.blue : Colors.grey,
+                            color: (index > 1) ? ColorManager.activeColor : ColorManager.inActiveTimeLine,
                             width: 6)),
                   ),
                   const SizedBox(
@@ -182,7 +182,7 @@ class _QuestPageScreenState extends State<QuestPageScreen> {
                         color: Colors.white,
                         shape: BoxShape.circle,
                         border: Border.all(
-                            color: (index > 2) ? Colors.blue : Colors.grey,
+                            color: (index > 2) ? ColorManager.activeColor : ColorManager.inActiveTimeLine,
                             width: 6)),
                   ),
                   const SizedBox(

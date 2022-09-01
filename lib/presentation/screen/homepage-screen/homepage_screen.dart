@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:digital_hunter/presentation/bloc/carousel-bloc/carousel_bloc.dart';
 import 'package:digital_hunter/presentation/bloc/competition-bloc/competition_bloc.dart';
@@ -5,6 +7,7 @@ import 'package:digital_hunter/presentation/bloc/course-bloc/course_bloc.dart';
 import 'package:digital_hunter/presentation/bloc/menu-bloc/menu_bloc.dart';
 import 'package:digital_hunter/presentation/resource/color/color_manager.dart';
 import 'package:digital_hunter/presentation/resource/font/font_manager.dart';
+import 'package:digital_hunter/presentation/resource/routes/route_manager.dart';
 import 'package:digital_hunter/presentation/widget/homepage-Widget/competitionWidget.dart';
 import 'package:digital_hunter/presentation/widget/homepage-Widget/courseWidget.dart';
 import 'package:digital_hunter/presentation/widget/homepage-Widget/menuWidget.dart';
@@ -228,13 +231,18 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           scrollDirection: Axis.horizontal,
                           itemCount: state.okContentMenu!.items!.length,
                           itemBuilder: ((context, index) {
+                            
                             var menu = state.okContentMenu!.items;
+                            var pressed = "/"+menu![index].title!.toLowerCase();
                             return Row(
                               children: [
                                 MenuDashboard(
-                                    imageUrl: menu![index].imageUrl.toString(),
+                                    imageUrl: menu[index].imageUrl.toString(),
                                     title: menu[index].title.toString(),
-                                    press: () {}),
+                                    press: () {
+                                    Navigator.pushNamed(context, '$pressed');
+                                        
+                                    }),
                                 const SizedBox(
                                   width: 20,
                                 )

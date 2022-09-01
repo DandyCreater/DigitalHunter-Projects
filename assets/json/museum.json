@@ -3,15 +3,36 @@
     "OKContent": {
         "items": [
             {
-                "imageUrl": "",
+                "imageUrl": "assets/images/image_competition1.png",
                 "title" : "1st Winner Indonesia Art Project by Solana Labs",
                 "year": "2022",
                 "status" : "Nasional",
                 "name" : "Talent Name"
             },
             {
-                "imageUrl": "",
-                "title" : "1st Winner Indonesia Art Project by Solana Labs",
+                "imageUrl": "assets/images/image_competition2.png",
+                "title" : "1st Winner Astra StartUp Challenge Batch 6 Tahun",
+                "year": "2022",
+                "status" : "Nasional",
+                "name" : "Talent Name"
+            },
+            {
+                "imageUrl": "assets/images/image_competition3.png",
+                "title" : "1st Winner Startup Arena Pitch battle 2022 by TechIn",
+                "year": "2022",
+                "status" : "Nasional",
+                "name" : "Talent Name"
+            },
+            {
+                "imageUrl": "assets/images/image_competition4.png",
+                "title" : "1st Winner JUMPSTARTER 2021 Global Pitch Competiti",
+                "year": "2022",
+                "status" : "Nasional",
+                "name" : "Talent Name"
+            },
+            {
+                "imageUrl": "assets/images/image_competition4.png",
+                "title" : "1st Winner The NextDev Startup Competition by Tel",
                 "year": "2022",
                 "status" : "Nasional",
                 "name" : "Talent Name"
