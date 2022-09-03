@@ -47,8 +47,7 @@ class _MainPageState extends State<MainPage> {
             elevation: 0,
             color: ColorManager.backgroundColor,
             child: Container(
-              margin: EdgeInsets.only(bottom: 0.5.h),
-              height: 9.h,
+              height: 7.h,
               width: double.infinity,
               decoration:
                   BoxDecoration(color: ColorManager.whiteColor, boxShadow: [
@@ -59,7 +58,7 @@ class _MainPageState extends State<MainPage> {
                 )
               ]),
               child: Padding(
-                padding: EdgeInsets.only(left: 6.w, right: 6.w, top: 2.h),
+                padding: EdgeInsets.only(left: 6.w, right: 6.w, top: 1.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -67,21 +66,24 @@ class _MainPageState extends State<MainPage> {
                       onTap: () => _onTapped(0),
                       child: Column(
                         children: [
-                          SvgPicture.asset(
-                            "assets/icons/icon_home.svg",
-                            height: 3.h,
-                            width: 3.h,
-                            color: _currentpage == 0
-                                ? ColorManager.activeColor
-                                : ColorManager.inActiveColor,
-                          ),
+                          _currentpage == 0
+                              ? Image.asset(
+                                  "assets/images/image_home.png",
+                                  height: 2.5.h,
+                                  width: 2.5.h,
+                                )
+                              : SvgPicture.asset(
+                                  "assets/icons/icon_home.svg",
+                                  height: 2.5.h,
+                                  width: 2.5.h,
+                                ),
                           SizedBox(
                             height: 1.h,
                           ),
                           Text(
                             "Home",
                             style: RobotoRegularThemeText(
-                                14,
+                                12,
                                 _currentpage == 0
                                     ? ColorManager.activeColor
                                     : ColorManager.inActiveColor),
@@ -93,21 +95,24 @@ class _MainPageState extends State<MainPage> {
                       onTap: () => _onTapped(1),
                       child: Column(
                         children: [
-                          SvgPicture.asset(
-                            "assets/icons/icon_projects.svg",
-                            height: 3.h,
-                            width: 3.h,
-                            color: _currentpage == 1
-                                ? ColorManager.activeColor
-                                : ColorManager.inActiveColor,
-                          ),
+                          _currentpage == 1
+                              ? Image.asset(
+                                  "assets/images/image_projects.png",
+                                  height: 2.5.h,
+                                  width: 2.5.h,
+                                )
+                              : SvgPicture.asset(
+                                  "assets/icons/icon_projects.svg",
+                                  height: 2.5.h,
+                                  width: 2.5.h,
+                                ),
                           SizedBox(
                             height: 1.h,
                           ),
                           Text(
                             "Project",
                             style: RobotoRegularThemeText(
-                                14,
+                                12,
                                 _currentpage == 1
                                     ? ColorManager.activeColor
                                     : ColorManager.inActiveColor),
@@ -118,12 +123,12 @@ class _MainPageState extends State<MainPage> {
                     Column(
                       children: [
                         SizedBox(
-                          height: 4.h,
+                          height: 3.5.h,
                         ),
                         Text(
                           "Quest",
                           style: RobotoRegularThemeText(
-                              14,
+                              12,
                               _currentpage == 2
                                   ? ColorManager.activeColor
                                   : ColorManager.inActiveColor),
@@ -134,21 +139,24 @@ class _MainPageState extends State<MainPage> {
                       onTap: () => _onTapped(3),
                       child: Column(
                         children: [
-                          SvgPicture.asset(
-                            "assets/icons/icon_crown.svg",
-                            height: 3.h,
-                            width: 3.h,
-                            color: _currentpage == 3
-                                ? ColorManager.activeColor
-                                : ColorManager.inActiveColor,
-                          ),
+                          _currentpage == 3
+                              ? Image.asset(
+                                  "assets/images/image_rank.png",
+                                  height: 2.5.h,
+                                  width: 2.5.h,
+                                )
+                              : SvgPicture.asset(
+                                  "assets/icons/icon_crown.svg",
+                                  height: 2.5.h,
+                                  width: 2.5.h,
+                                ),
                           SizedBox(
                             height: 1.h,
                           ),
                           Text(
                             "Rank",
                             style: RobotoRegularThemeText(
-                                14,
+                                12,
                                 _currentpage == 3
                                     ? ColorManager.activeColor
                                     : ColorManager.inActiveColor),
@@ -160,21 +168,24 @@ class _MainPageState extends State<MainPage> {
                       onTap: () => _onTapped(4),
                       child: Column(
                         children: [
-                          SvgPicture.asset(
-                            "assets/icons/icon_profile.svg",
-                            height: 3.h,
-                            width: 3.h,
-                            color: _currentpage == 4
-                                ? ColorManager.activeColor
-                                : ColorManager.inActiveColor,
-                          ),
+                          _currentpage == 4
+                              ? Image.asset(
+                                  "assets/images/image_profile.png",
+                                  height: 2.5.h,
+                                  width: 2.5.h,
+                                )
+                              : SvgPicture.asset(
+                                  "assets/icons/icon_profile.svg",
+                                  height: 2.5.h,
+                                  width: 2.5.h,
+                                ),
                           SizedBox(
                             height: 1.h,
                           ),
                           Text(
                             "Profile",
                             style: RobotoRegularThemeText(
-                                14,
+                                12,
                                 _currentpage == 4
                                     ? ColorManager.activeColor
                                     : ColorManager.inActiveColor),
@@ -189,18 +200,21 @@ class _MainPageState extends State<MainPage> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: GestureDetector(
           onTap: () => _onTapped(2),
-          child: SizedBox(
-            height: 10.h,
-            width: 20.w,
-            child: ClipPolygon(
-                borderRadius: 5,
-                sides: 6,
-                child: Container(
-                  color: ColorManager.primaryColor,
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 2.75.w, vertical: 2.75.h),
-                  child: SvgPicture.asset("assets/icons/icon_quest.svg"),
-                )),
+          child: Padding(
+            padding: EdgeInsets.only(left: 2.w),
+            child: SizedBox(
+              height: 8.h,
+              width: 16.w,
+              child: ClipPolygon(
+                  borderRadius: 5,
+                  sides: 6,
+                  child: Container(
+                    color: ColorManager.primaryColor,
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 2.2.w, vertical: 2.2.h),
+                    child: SvgPicture.asset("assets/icons/icon_quest.svg"),
+                  )),
+            ),
           ),
         ),
       );

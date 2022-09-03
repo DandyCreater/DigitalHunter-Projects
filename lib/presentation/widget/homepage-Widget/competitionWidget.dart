@@ -28,8 +28,8 @@ class CompetitionWidget extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            height: 190,
-            width: 120,
+            height: 185,
+            width: 110,
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -45,7 +45,7 @@ class CompetitionWidget extends StatelessWidget {
                   height: 100,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10)),
                       image: DecorationImage(

@@ -17,6 +17,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({Key? key}) : super(key: key);
@@ -26,12 +27,14 @@ class HomePageScreen extends StatefulWidget {
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
+  final pageController = PageController(viewportFraction: .9);
   int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: ((context, orientation, deviceType) {
       return Scaffold(
+        backgroundColor: ColorManager.whiteColor,
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
@@ -55,71 +58,86 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 ),
               ),
               SizedBox(
-                height: 4.h,
+                height: 2.h,
               ),
               SizedBox(
-                height: 36.h,
+                height: 32.h,
                 width: double.infinity,
                 child: BlocBuilder<CarouselBloc, CarouselState>(
                   builder: (context, state) {
                     if (state is CarouselSuccess) {
-                      var items = state.okContentCarousel!.items!.length;
+                      var items = state.okContentCarousel!.items!;
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CarouselSlider.builder(
-                              itemCount: items,
+                              itemCount: items.length,
                               itemBuilder: (BuildContext context, int itemIndex,
                                       pageViewIndex) =>
                                   Container(
-                                    margin: EdgeInsets.only(right: 6.w),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      image: DecorationImage(
-                                          image: AssetImage(state
-                                              .okContentCarousel!
-                                              .items![itemIndex]
-                                              .imageUrl
-                                              .toString()),
-                                          fit: BoxFit.cover),
-                                    ),
-                                  ),
+                                      width: double.infinity,
+                                      margin: EdgeInsets.only(
+                                        right: 2.w,
+                                      ),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border: Border.all(
+                                            width: 1,
+                                            color: Colors.grey.shade200,
+                                          ),
+                                          image: DecorationImage(
+                                              image: AssetImage(items[itemIndex]
+                                                  .imageUrl
+                                                  .toString()),
+                                              fit: BoxFit.cover))),
+
+                              // Container(
+                              //   margin:
+                              //       EdgeInsets.only(right: 4.w, left: 6.w),
+                              //   decoration: BoxDecoration(
+                              //     borderRadius: BorderRadius.circular(20),
+                              //     image: DecorationImage(
+                              //         image: AssetImage(state
+                              //             .okContentCarousel!
+                              //             .items![itemIndex]
+                              //             .imageUrl
+                              //             .toString()),
+                              //         fit: BoxFit.cover),
+                              //   ),
+                              // ),
                               options: CarouselOptions(
-                                  aspectRatio: 2.0,
-                                  viewportFraction: 0.92,
+                                  enableInfiniteScroll: false,
+                                  aspectRatio: 2.15,
+                                  viewportFraction:
+                                      pageController.viewportFraction,
                                   enlargeCenterPage: false,
                                   pauseAutoPlayOnManualNavigate: true,
-                                  autoPlay: true,
+                                  autoPlay: false,
                                   scrollDirection: Axis.horizontal,
                                   onPageChanged: (index, reason) {
                                     setState(() {
                                       _currentIndex = index;
                                     });
                                   })),
+                          const SizedBox(height: 20.0),
                           Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 1.h, horizontal: 7.w),
-                            child: Row(
-                              children: state.okContentCarousel!.items!.map(
-                                (image) {
-                                  int index = state.okContentCarousel!.items!
-                                      .indexOf(image);
-                                  return Container(
-                                    width: 8,
-                                    height: 8,
-                                    margin: const EdgeInsets.only(
-                                        top: 10, left: 2, right: 2),
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: _currentIndex == index
-                                            ? const Color.fromRGBO(0, 0, 0, 0.9)
-                                            : const Color.fromRGBO(
-                                                0, 0, 0, 0.4)),
-                                  );
-                                },
-                              ).toList(),
+                            padding: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * 0.06,
                             ),
-                          )
+                            child: AnimatedSmoothIndicator(
+                              activeIndex: _currentIndex,
+                              count: items.length,
+                              effect: SlideEffect(
+                                dotWidth: 10.0,
+                                dotHeight: 10.0,
+                                dotColor: Colors.grey,
+                                activeDotColor: ColorManager.blackColor,
+                                radius: 20.0,
+                                spacing: 5,
+                              ),
+                            ),
+                          ),
                         ],
                       );
                     }
@@ -139,7 +157,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                            color: ColorManager.shadowColor.withOpacity(0.2),
+                            color: ColorManager.shadowColor.withOpacity(0.3),
                             blurRadius: 10,
                             offset: const Offset(0, 0))
                       ]),
@@ -231,20 +249,19 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           scrollDirection: Axis.horizontal,
                           itemCount: state.okContentMenu!.items!.length,
                           itemBuilder: ((context, index) {
-                            
                             var menu = state.okContentMenu!.items;
-                            var pressed = "/"+menu![index].title!.toLowerCase();
+                            var pressed =
+                                "/" + menu![index].title!.toLowerCase();
                             return Row(
                               children: [
                                 MenuDashboard(
                                     imageUrl: menu[index].imageUrl.toString(),
                                     title: menu[index].title.toString(),
                                     press: () {
-                                    Navigator.pushNamed(context, '$pressed');
-                                        
+                                      Navigator.pushNamed(context, '$pressed');
                                     }),
                                 const SizedBox(
-                                  width: 20,
+                                  width: 15,
                                 )
                               ],
                             );
@@ -304,7 +321,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                   status: items[index].status.toString(),
                                   price: items[index].price.toString(),
                                   poins: items[index].poins.toString(),
-                                  student: items[index].poins.toString(),
+                                  student: items[index].student.toString(),
                                   press: () {},
                                 ),
                                 const SizedBox(
@@ -379,7 +396,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 ),
               ),
               SizedBox(
-                height: 3.h,
+                height: 4.h,
               ),
             ],
           ),
